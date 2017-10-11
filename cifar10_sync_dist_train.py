@@ -126,7 +126,7 @@ def train():
             # GPU memory.
             sv = tf.train.Supervisor(is_chief=is_chief,
                                      logdir=FLAGS.train_dir,
-                                     init_op=tf.initialize_all_variables(),
+                                     init_op=tf.global_variables_initializer(),
                                      summary_op=tf.summary.merge_all(),
                                      global_step=global_step,
                                      saver=saver,
